@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SERTON</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    <style type="text/css">
+        body {
+            font-family: "Roboto", sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #ffffff;
+        }
+        .icon_action {
+            width: 24px;
+        }
+        header {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .container {
+            width: 1224px;
+            margin: 0 auto;
+        }
+        nav ul li {
+            display: inline;
+            margin-right: 20px;
+        }
+        nav a {
+            text-decoration: none;
+            color: #333333;
+            font-weight: bold;
+        }
+        .active {
+            color: #FF7120;
+        }
+        .active::before {
+            content: "•";
+            color: #FF7120;
+            font-size: 24px;
+            position: absolute;
+            margin-top: 10px;
+            margin-left: 37px;
+        }
+        .actions {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
+            gap: 10px;
+        }
+        .number {
+            background-color: red;
+            color: white;
+            position: absolute;
+            font-size: 10px;
+            padding: 5px 6px;
+            border-radius: 50%;
+            margin-left: -11px;
+            margin-top: -4px;
+        }
+        .btn-login {
+            background-color: #023047;
+            color: #CCC;
+            border: none;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            padding: 10px 25px;
+            border-radius: 20px;
+        }
+        content {
+            display: flex;
+            flex-direction: row;
+            margin-top: 10px;
+        }
+        .cont-left {
+            flex: 1;
+        }
+        .cont-left h1 {
+            font-family: serif;
+            font-weight: bold;
+            font-size: 65px;
+            color: #023047;
+        }
+        .cont-left h3 {
+            font-weight: 500;
+            color: #333333;
+            margin-top: 20px;
+        }
+        .cont-right {
+            flex: 1;
+        }
+        .orange {
+            color: #FF7120;
+        }
+        .cacto {
+            position: absolute;
+            margin-left: 320px;
+            margin-top: 70px;
+        }
+        .form {
+            border-radius: 10px;
+            padding: 25px;
+            font-size: 18px;
+            border: 1px solid #CCC;
+            box-shadow: 1px 1px 10px #CCCC;
+            flex: 2;
+        }
+        .btn {
+            border-radius: 10px;
+            padding: 25px 35px;
+            font-size: 18px;
+            border: 1px solid #CCC;
+            box-shadow: 1px 1px 10px #CCCC;
+            background-color: #023047;
+            color: white;
+            flex: 1;
+        }
+        .container-form {
+            display: flex;
+            flex-direction: row;
+            gap: 10px;
+            margin-top: 60px;
+        }
+        .pizza {
+            position: absolute;
+            z-index: 2;
+            margin-top: -120px;
+            margin-left: 230px;
+        }
+        .categorias {
+            background-color: #ffffff;
+            padding: 80px 0;
+            text-align: center;
+        }
+        .categorias h2 {
+            font-size: 24px;
+            margin-bottom: 40px;
+        }
+        .cards {
+            display: flex;
+            gap: 60px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        .card {
+            width: 190px;
+            height: 190px;
+            border-radius: 12px;
+            color: white;
+            font-weight: bold;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            font-size: 14px;
+        }
+        .orange { background-color: #ff6c1e; }
+        .blue { background-color: #5ec5ff; }
+        .purple { background-color: #7a50e2; }
+        .pink { background-color: #ff5c9f; }
+        .green { background-color: #2be367; }
+        .destaques {
+            background-color: #ffffff;
+            padding: 40px 0 80px;
+        }
+        .header-section {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 30px;
+        }
+        .cards-destaque {
+            display: flex;
+            gap: 120px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        .card-destaque {
+            width: 320px;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 0 12px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+        .card-destaque img {
+            width: 100%;
+            height: 150px;
+            object-fit: cover;
+        }
+        .card-destaque .info {
+            padding: 10px;
+        }
+        footer {
+            background-color: #023047;
+            color: white;
+            padding: 80px 0 40px;
+        }
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            gap: 30px;
+            flex-wrap: wrap;
+        }
+        .footer-left {
+            max-width: 400px;
+        }
+        .footer-left img {
+            height: 30px;
+            margin-bottom: 10px;
+        }
+        .social i {
+            margin-right: 15px;
+        }
+        .footer-right div {
+            margin-bottom: 20px;
+        }
+        .footer-right h4 {
+            margin-bottom: 10px;
+        }
+        .footer-right input {
+            padding: 8px;
+            width: 200px;
+            border: none;
+            border-radius: 4px;
+        }
+        .footer-right button {
+            padding: 8px 12px;
+            background-color: #ff6c1e;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            margin-left: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div>
+                <img src="imagens/logoserton.png" alt="Logo Serton" />
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#" class="active">Página Inicial</a></li>
+                    <li><a href="sobre-nos.html">Sobre nós</a></li>
+                    <li><a href="categorias.html">Categorias</a></li>
+                    <li><a href="#">Contato</a></li>
+                </ul>
+            </nav>
+            <div class="actions">
+                <div>
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="icon_action">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z" />
+                    </svg>
+                </div>
+                <div>
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="icon_action">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 10.5V6a3.75 3.75 0 1 0-7.5 0v4.5m11.356-1.993 1.263 12c.07.665-.45 1.243-1.119 1.243H4.25a1.125 1.125 0 0 1-1.12-1.243l1.264-12A1.125 1.125 0 0 1 5.513 7.5h12.974c.576 0 1.059.435 1.119 1.007ZM8.625 10.5a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Zm7.5 0a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Z" />
+                    </svg>
+                    <span class="number">999</span>
+                </div>
+                <div>
+                    <button class="btn-login">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="icon_action">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 9V5.25A2.25 2.25 0 0 1 10.5 3h6a2.25 2.25 0 0 1 2.25 2.25v13.5A2.25 2.25 0 0 1 16.5 21h-6a2.25 2.25 0 0 1-2.25-2.25V15M12 9l3 3m0 0-3 3m3-3H2.25" />
+                        </svg>
+                        <span>Login</span>
+                    </button>
+                </div>
+            </div>
+        </header>
+        <content>
+            <div class="cont-left">
+                <div class="cacto">
+                    <img src="imagens/cacto.png" alt="Cacto" />
+                </div>
+                <h1 style="font-family: 'Playfair Display', serif; font-size: 65px; font-weight: bold; color: #023047;">
+    Bem vindo<br />
+    O <span style="color: #FF7120;">sertão</span><br />
+    agora esta <span style="color: #FF7120;">online</span>
+</h1>
+                <div>
+                    <h3>Fique por dentro das novidades dos estabelecimentos da sua cidade.</h3>
+                    <form class="container-form">
+                        <input type="text" class="form" placeholder="Digite o nome da sua cidade">
+                        <button class="btn">Pesquisar</button>
+                    </form>
+                </div>
+            </div>
+            <div  class="cont-right">
+                <img src="imagens/banner.png" alt="Banner" />
+                <div class="pizza">
+                    <img src="imagens/pizza1.png" alt="Pizza" />
+                </div>
+            </div>
+        </content>
+    </div>
+
+    <section class="categorias">
+        <h2 style="color: #023047; font-size: 20px; font-weight: bold; text-align: left; width: 1224px; margin: auto; margin-bottom: 40px;">Categorias Populares</h2>
+        <div class="cards">
+          <div class="card orange">
+            <img src="https://img.icons8.com/ios-filled/50/ffffff/shopping-cart.png" width="50" alt="Mercados">
+            <p style="margin-top: 10px; color: #000; font-weight: 500;"></p>
+          </div>
+          <div class="card blue">
+            <img src="https://img.icons8.com/ios-filled/50/ffffff/shop.png" width="50" alt="Lojas">
+            <p style="margin-top: 10px; color: #000; font-weight: 500;"></p>
+          </div>
+          <div class="card purple">
+            <img src="https://img.icons8.com/ios-filled/50/ffffff/pizza.png" width="50" alt="Restaurantes">
+            <p style="margin-top: 10px; color: #000; font-weight: 500;"></p>
+          </div>
+          <div class="card pink">
+            <img src="https://img.icons8.com/ios-filled/50/ffffff/pill.png" width="50" alt="Farmácias">
+            <p style="margin-top: 10px; color: #000; font-weight: 500;"></p>
+          </div>
+          <div class="card green">
+            <img src="https://img.icons8.com/ios-filled/50/ffffff/beer.png" width="50" alt="Bar">
+            <p style="margin-top: 10px; color: #000; font-weight: 500;"></p>
+          </div>
+        </div>
+      </section>
+
+    <section class="destaques">
+        <div class="container">
+            <div class="header-section">
+                <h2>Destaques</h2>
+                <a href="#" style="color: #023047; font-weight: bold;">Ver todos</a>
+            </div>
+            <div class="cards-destaque">
+                <div class="card-destaque">
+                    <img src="imagens/Pizza1.jpg" alt="Pizza">
+                    <div class="info">
+                        <h4>Pizzaria Sabor</h4>
+                        <p>⭐ 4.5</p>
+                        <p>📍 Rua João Carlos Menezes - 100</p>
+                    </div>
+                </div>
+                <div class="card-destaque">
+                    <img src="imagens/Mercado1.jpg" alt="Mercado">
+                    <div class="info">
+                        <h4>Mercadinho Popular</h4>
+                        <p>⭐ 4.8</p>
+                        <p>📍 Av. Sertão Rural - 222</p>
+                    </div>
+                </div>
+                <div class="card-destaque">
+                    <img src="imagens/Restaurante.jpg" alt="Restaurante">
+                    <div class="info">
+                        <h4>Restaurante da Vila</h4>
+                        <p>⭐ 4.7</p>
+                        <p>📍 Praça Central - 45</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer style="background-color: #fff; color: #000; padding: 60px 0 40px;">
+        <div class="container footer-content" style="display: flex; justify-content: space-between; gap: 30px; flex-wrap: wrap; align-items: flex-start;">
+          <div class="footer-left" style="max-width: 300px;">
+            <img src="imagens/logoserton.png" alt="Logo SertON" style="height: 40px; margin-bottom: 10px;">
+            <p style="color: #000; font-size: 15px; line-height: 1.6;">Nossa missão é trazer o sertão para o mundo digital, valorizando e apoiando empreendedores locais</p>
+            <div class="social" style="margin-top: 20px;">
+              <i class="fab fa-instagram" style="margin-right: 15px; font-size: 18px;"></i>
+              <i class="fab fa-facebook-f" style="margin-right: 15px; font-size: 18px;"></i>
+              <i class="fab fa-twitter" style="margin-right: 15px; font-size: 18px;"></i>
+            </div>
+          </div>
+          <div class="footer-center">
+            <h4 style="font-size: 16px; font-weight: bold; margin-bottom: 10px;">Sobre</h4>
+            <ul style="list-style: none; padding: 0; line-height: 2; font-size: 14px;">
+              <li><a href="#" style="color: #000; text-decoration: none;">Sobre nós</a></li>
+              <li><a href="#" style="color: #000; text-decoration: none;">Novidades</a></li>
+              <li><a href="#" style="color: #000; text-decoration: none;">Menu</a></li>
+            </ul>
+          </div>
+          <div class="footer-right">
+            <h4 style="font-size: 16px; font-weight: bold; margin-bottom: 10px;">Novidades</h4>
+            <form style="display: flex; gap: 10px; align-items: center;">
+              <input type="email" placeholder="Seu e-mail" style="padding: 10px; border: 1px solid #ccc; border-radius: 8px; width: 250px; font-size: 14px;">
+              <button style="padding: 10px 20px; background-color: #023047; color: white; border: none; border-radius: 8px; font-size: 14px;">Inscrever-se</button>
+            </form>
+          </div>
+        </div>
+      </footer>
+      
+</body>
+</html>
